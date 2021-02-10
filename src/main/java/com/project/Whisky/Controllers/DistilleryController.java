@@ -17,9 +17,8 @@ public class DistilleryController {
     @Autowired
     DistilleryRepository distilleryRepository;
 
-    @GetMapping(value = "/Distilleries")
+    @GetMapping("/distilleries")
     public ResponseEntity<List<Distillery>> getAllDistillery() {
-        List<Distillery> allDistilleries = distilleryRepository.findAll();
-        return new ResponseEntity<>(allDistilleries, HttpStatus.OK);
+        return new ResponseEntity<>(distilleryRepository.findAll(), HttpStatus.OK);
     }
 }

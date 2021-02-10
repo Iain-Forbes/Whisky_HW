@@ -16,8 +16,8 @@ public class WhiskyController {
     @Autowired
     WhiskyRepository whiskyRepository;
 
-    @GetMapping(value = "/whiskys")
-    public ResponseEntity<List<Whisky>> getAllPirates() {
+    @GetMapping("/whiskys")
+    public ResponseEntity<List<Whisky>> getAllWhisky() {
         List<Whisky> allWhisky = whiskyRepository.findAll();
         return new ResponseEntity<>(allWhisky, HttpStatus.OK);
     }
