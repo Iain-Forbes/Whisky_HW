@@ -26,7 +26,7 @@ public class Whisky {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    public Whisky(String name,  int year, int age, Distillery distillery) {
+    public Whisky(String name,  int age, int year,  Distillery distillery) {
         this.name = name;
         this.distillery = distillery;
         this.year = year;
