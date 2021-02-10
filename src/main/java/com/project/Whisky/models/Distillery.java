@@ -1,5 +1,7 @@
 package com.project.Whisky.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -14,8 +16,9 @@ public class Distillery {
     @Column
     private String region;
 
-    @OneToMany(mappedBy = "Distillery")
-    private List<Whisky> Whiskys;
+    @JsonIgnoreProperties("distillery")
+    @OneToMany(mappedBy = "distillery")
+    private List<Whisky> whiskys;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -24,7 +27,7 @@ public class Distillery {
     public Distillery(String name, String region) {
         this.name = name;
         this.region = region;
-        Whiskys = new ArrayList<>();
+        this.whiskys = new ArrayList<>();
 
     }
 
@@ -48,11 +51,11 @@ public class Distillery {
     }
 
     public List<Whisky> getWhiskys() {
-        return Whiskys;
+        return whiskys;
     }
 
     public void setWhiskys(List<Whisky> whiskys) {
-        Whiskys = whiskys;
+        this.whiskys = whiskys;
     }
 
     public Long getId() {
